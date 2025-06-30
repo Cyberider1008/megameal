@@ -21,3 +21,10 @@ class OrderSerializer(serializers.ModelSerializer):
         for item in items_data:
             OrderItem.objects.create(order=order, **item)
         return order
+
+
+class OrderStatusSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ['id', 'status', 'order_type', 'shipping_address', 'discount', 'created_at']
+        read_only_fields = ['id', 'order_type', 'shipping_address', 'discount', 'created_at']

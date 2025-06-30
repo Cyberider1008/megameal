@@ -3,6 +3,8 @@ from rest_framework.routers import DefaultRouter
 from orders.views.order import OrderViewSet
 from orders.views.payment import CreateRazorpayOrderView, VerifyRazorpayPaymentView
 from orders.views.stock_check import ProductStockCheckView, SmartMealSuggestionView
+from orders.views.tracking import OrderStatusUpdateView, OrderStatusView
+
 
 
 
@@ -17,5 +19,8 @@ urlpatterns += [
 
     path('check-stock/', ProductStockCheckView.as_view()),
     path('smart-meal/', SmartMealSuggestionView.as_view()),
+
+     path('status/<int:pk>/', OrderStatusView.as_view()),
+    path('status/<int:pk>/update/', OrderStatusUpdateView.as_view()),
 
 ]

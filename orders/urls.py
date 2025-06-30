@@ -4,6 +4,7 @@ from orders.views.order import OrderViewSet
 from orders.views.payment import CreateRazorpayOrderView, VerifyRazorpayPaymentView
 from orders.views.stock_check import ProductStockCheckView, SmartMealSuggestionView
 from orders.views.tracking import OrderStatusUpdateView, OrderStatusView
+from orders.views.invoice import InvoiceDownloadView
 
 
 
@@ -22,5 +23,7 @@ urlpatterns += [
 
      path('status/<int:pk>/', OrderStatusView.as_view()),
     path('status/<int:pk>/update/', OrderStatusUpdateView.as_view()),
+
+    path('invoice/<int:order_id>/download/', InvoiceDownloadView.as_view()),
 
 ]

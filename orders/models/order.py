@@ -1,4 +1,3 @@
-# orders/models/order.py
 from django.db import models
 from accounts.models.user import CustomUser
 from products.models.product import Product
@@ -10,15 +9,14 @@ class Order(models.Model):
         ('complete', 'Complete'),
         ('cancelled', 'Cancelled')
     ]
-
-    ORDER_TYPE_CHOICES = [
+    TYPE_CHOICES = [
         ('pickup', 'Pickup'),
         ('delivery', 'Delivery'),
         ('dinein', 'Dine-in')
     ]
 
     customer = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    order_type = models.CharField(max_length=10, choices=ORDER_TYPE_CHOICES)
+    order_type = models.CharField(max_length=10, choices=TYPE_CHOICES)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
     shipping_address = models.TextField(blank=True, null=True)
     discount = models.DecimalField(max_digits=6, decimal_places=2, default=0)

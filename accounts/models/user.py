@@ -21,6 +21,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
+    loyalty_points = models.IntegerField(default=0)
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'

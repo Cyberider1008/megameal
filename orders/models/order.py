@@ -24,6 +24,9 @@ class Order(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    loyalty_points_awarded = models.IntegerField(default=0)
+
+
     payment_status = models.CharField(max_length=10, choices=[
         ('unpaid', 'Unpaid'),
         ('paid', 'Paid'),

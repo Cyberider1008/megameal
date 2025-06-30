@@ -11,7 +11,9 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ['id', 'customer', 'order_type', 'status', 'shipping_address', 'discount', 'total_price', 'items', 'created_at']
+        fields = ['id', 'customer', 'order_type', 'status', 'shipping_address', 'discount', 'total_price',
+                  'payment_status', 'razorpay_order_id', 'razorpay_payment_id', 'razorpay_signature',
+                  'items', 'created_at']
 
     def create(self, validated_data):
         items_data = validated_data.pop('items')

@@ -26,6 +26,10 @@ class Order(models.Model):
 
     loyalty_points_awarded = models.IntegerField(default=0)
 
+    coupon = models.ForeignKey('coupons.Coupon', null=True, blank=True, on_delete=models.SET_NULL)
+    discount_applied = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
+
+
 
     payment_status = models.CharField(max_length=10, choices=[
         ('unpaid', 'Unpaid'),

@@ -5,7 +5,7 @@ from orders.views.payment import CreateRazorpayOrderView, VerifyRazorpayPaymentV
 from orders.views.stock_check import ProductStockCheckView, SmartMealSuggestionView
 from orders.views.tracking import OrderStatusUpdateView, OrderStatusView
 from orders.views.invoice import InvoiceDownloadView
-
+from orders.views.apply_coupon import ApplyCouponView
 
 
 
@@ -21,9 +21,11 @@ urlpatterns += [
     path('check-stock/', ProductStockCheckView.as_view()),
     path('smart-meal/', SmartMealSuggestionView.as_view()),
 
-     path('status/<int:pk>/', OrderStatusView.as_view()),
+    path('status/<int:pk>/', OrderStatusView.as_view()),
     path('status/<int:pk>/update/', OrderStatusUpdateView.as_view()),
 
     path('invoice/<int:order_id>/download/', InvoiceDownloadView.as_view()),
+    
+    path('order/<int:order_id>/apply-coupon/', ApplyCouponView.as_view()),
 
 ]

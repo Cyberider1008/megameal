@@ -23,6 +23,10 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     loyalty_points = models.IntegerField(default=0)
 
+    referral_code = models.CharField(max_length=10, unique=True, blank=True, null=True)
+    referred_by = models.ForeignKey('self', null=True, blank=True, on_delete=models.SET_NULL)
+
+
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'

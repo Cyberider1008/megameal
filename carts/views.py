@@ -8,3 +8,5 @@ class CartDetailView(generics.RetrieveAPIView):
 
     def get_object(self):
         return Cart.objects.get_or_create(user=self.request.user)[0]
+
+

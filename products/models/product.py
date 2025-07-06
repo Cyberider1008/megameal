@@ -2,8 +2,8 @@ from django.db import models
 from products.models.category import Category
 from products.models.store import Store
 
-class Product(models.Model):
-    store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name='products')
+class Product(models.Model): 
+    # store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name='products')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
     name = models.CharField(max_length=200)
     description = models.TextField()

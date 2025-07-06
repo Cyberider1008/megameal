@@ -10,7 +10,7 @@ from orders.views.apply_coupon import ApplyCouponView
 
 
 router = DefaultRouter()
-router.register('orders', OrderViewSet)
+router.register('orders', OrderViewSet, basename='orders')
 
 urlpatterns = router.urls
 

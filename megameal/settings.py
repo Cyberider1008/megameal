@@ -37,13 +37,29 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # 3rd Party
     'rest_framework',
-    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
+    'django_celery_results',
+    'django_celery_beat',
+    'drf_yasg',
+    'channels',
+
+    # Custom apps
     'accounts',
     'products',
     'orders',
-    'core',
+    'carts',
+    'coupons',
+    'wishlist',
     'notifications',
+    'reviews',
+    # 'referrals',
+    # 'smartmeal',
+
+
 ]
 
 
@@ -66,6 +82,8 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -159,9 +177,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-RAZORPAY_KEY_ID = 'your_key_id'
-RAZORPAY_KEY_SECRET = 'your_key_secret'
+RAZORPAY_KEY_ID = 'rzp_test_9Xm1h2vbFfeyGM'
+RAZORPAY_KEY_SECRET = 'hW3hyf2Sg3AxQE1dHsQFed2p'
 
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+]
+
+CORS_ALLOW_ALL_ORIGINS = True

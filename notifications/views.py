@@ -33,4 +33,3 @@ class NotificationMarkAsReadView(generics.UpdateAPIView):
 
     def perform_update(self, serializer):
         serializer.save(read=True)
-✅
